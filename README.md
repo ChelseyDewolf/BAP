@@ -1,4 +1,4 @@
-# bap
+# bachlorproef
 
 ## Build Setup
 
