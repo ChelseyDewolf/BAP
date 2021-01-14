@@ -16,6 +16,7 @@
 
 import firebase from 'firebase/app'
 import { auth } from '~/plugins/firebase.js'
+import Cookies from 'js-cookie'
 
 export default {
   mounted(){
@@ -30,13 +31,23 @@ export default {
     logout(){
       alert('test');
     },
-    setupFirebase(){
+    setupFirebase() {
       firebase.auth().onAuthStateChanged(user => {
-        if(user){
-          console.log('logged in');
-          this.loggedIn = true;
-        }else {
-          this.loggedIn = false;
+        if (user) {
+          // User is signed in.
+          console.log('signed in')
+          firebase
+            .auth()
+            .currentUser.getIdToken(true)
+            .then(token => Cookies.set('access_token', token))
+          this.loggedIn = true
+        } else {
+          Cookies.remove('access_token')
+          // if (Cookies.set('access_token', 'blah')) {
+          // }
+          // No user is signed in.
+          this.loggedIn = false
+          console.log('signed out', this.loggedIn)
         }
       })
     },
