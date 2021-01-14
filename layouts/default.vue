@@ -1,8 +1,64 @@
 <template>
   <div>
+    <div class="main">
+      <div class="main-links">
+        <nuxt-link to="/">Home</nuxt-link>
+        <a @click="logout" v-if="loggedIn" class="logout-link">Logout</a>
+        <nuxt-link to="login" v-else>Login</nuxt-link>
+        <nuxt-link to="secret">Secret</nuxt-link>
+      </div>
+    </div>
     <Nuxt />
   </div>
 </template>
+
+<script>
+
+import firebase from 'firebase/app'
+import { auth } from '~/plugins/firebase.js'
+import Cookies from 'js-cookie'
+
+export default {
+  mounted(){
+    this.setupFirebase();
+  },
+  data(){
+    return{
+      loggedIn: false
+    }
+  },
+  methods: {
+    logout(){
+      alert('test');
+    },
+    setupFirebase() {
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          // User is signed in.
+          console.log('signed in')
+          firebase
+            .auth()
+            .currentUser.getIdToken(true)
+            .then(token => Cookies.set('access_token', token))
+          this.loggedIn = true
+        } else {
+          Cookies.remove('access_token')
+          // if (Cookies.set('access_token', 'blah')) {
+          // }
+          // No user is signed in.
+          this.loggedIn = false
+          console.log('signed out', this.loggedIn)
+        }
+      })
+    },
+    logout(){
+      firebase.auth().signOut().then(()=>{
+        this.$router.push('/');
+      })
+    }
+  }
+}
+</script>
 
 <style>
 html {
@@ -58,5 +114,18 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.main {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #551a8b;
 }
 </style>
