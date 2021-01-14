@@ -1,16 +1,19 @@
-<template lang="">
-  <div class="login">
-    <h3>Log in</h3>
-    <form @submit.prevent="pressed">
-      <div class="login">
-        <input type="text" placeholder="e-mail" v-model='email'>
-      </div>
-      <div class="password">
-        <input type="password" placeholder="password" v-model='password'>
-      </div>
-    <button>log in</button>
-   </form>
-   <div class="error" v-if="error">{{error.message}}</div>
+<template>
+  <div class="login-wrapper">
+    <div class="login-image"></div>
+    <div class="login">
+      <h3>Log in</h3>
+      <form @submit.prevent="pressed">
+        <div class="login">
+          <input type="text" placeholder="E-mail" v-model='email'>
+        </div>
+        <div class="password">
+          <input type="password" placeholder="Password" v-model='password'>
+        </div>
+      <button>Log in</button>
+    </form>
+    <div class="error" v-if="error">{{error.message}}</div>
+    </div>
   </div>
 </template>
 <script>
@@ -39,6 +42,17 @@ export default {
 }
 </script>
 <style scoped>
+
+  .login-wrapper {
+    display: flex;
+    height: 94vh;
+  }
+
+  .login-image {
+    width: 100%;
+    background-color: black;
+  }
+
   .login {
     display: flex;
     width: 100%;
@@ -62,7 +76,7 @@ export default {
 
   button {
     width: 15rem;
-    height: 1.5rem;
+    height: 2rem;
   }
 
   .error {

@@ -3,7 +3,7 @@
     <div class="main">
       <div class="main-links">
         <nuxt-link to="/">Home</nuxt-link>
-        <div @click="logout" v-if="loggedIn" class="logout-link">Logout</div>
+        <a @click="logout" v-if="loggedIn" class="logout-link">Logout</a>
         <nuxt-link to="login" v-else>Login</nuxt-link>
         <nuxt-link to="secret">Secret</nuxt-link>
       </div>
