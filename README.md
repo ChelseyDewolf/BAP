@@ -2,6 +2,8 @@
 
 ## Build Setup
 
+### Anton
+
 ```bash
 # install dependencies
 $ yarn install
