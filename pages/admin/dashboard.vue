@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Dashboard</h1>
-    <nuxt-link to="admin/login" @click.native="logout"class="logout-link">Log out</nuxt-link>
+    <nuxt-link to="admin/login" @click.native="logout" class="logout-link">Log out</nuxt-link>
   </div>
 </template>
 <script>
