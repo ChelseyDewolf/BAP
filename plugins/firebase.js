@@ -5,6 +5,8 @@ import 'firebase/auth'
 const firebaseConfig = {
   apiKey: 'AIzaSyCVrl9kg-kL85pAGtSQ19hpteCQjIKAEf0',
   authDomain: 'bachelorproef-b770d.firebaseapp.com',
+  databaseURL:
+    'https://bachelorproef-b770d-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'bachelorproef-b770d',
   storageBucket: 'bachelorproef-b770d.appspot.com',
   messagingSenderId: '71550202422',
