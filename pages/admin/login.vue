@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrapper">
     <div class="login-image">
-      <img src="../assets/images/image.svg" width="75px" alt="">
+      <img src="../../assets/images/image.svg" width="75px" alt="">
     </div>
     <div class="login">
       <h3>Log in</h3>
@@ -19,8 +19,10 @@
   </div>
 </template>
 <script>
+import { getUserFromCookie } from '@/helpers';
 import firebase from 'firebase/app'
 import { auth } from '~/plugins/firebase.js'
+import Cookies from 'js-cookie';
 
 export default {
 
@@ -32,12 +34,29 @@ export default {
       error: ''
     }
   },
-
+  asyncData({req, redirect}){
+    if(process.server){
+      const user = getUserFromCookie(req)
+      console.log(user);
+      if(user){
+        redirect('/admin/dashboard');
+      }
+    } else {
+        let user = firebase.auth().currentUser;
+        if(user){
+        redirect('/admin/dashboard');
+      }
+    }
+    // let user = firebase.auth().currentUser;
+    // if(!user){
+    //   this.$router.push('/login');
+    // }
+  },
   methods: {
     pressed(){
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(data => {
         console.log(data);
-        this.$router.push('/secret');
+        this.$router.push('/admin/dashboard');
       }).catch(error => this.error = error);
     }
   }
@@ -47,7 +66,7 @@ export default {
 
   .login-wrapper {
     display: flex;
-    height: 94vh;
+    height: 100vh;
   }
 
   .login-image {
