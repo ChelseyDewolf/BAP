@@ -3,7 +3,8 @@
     <div class="main">
       <div class="main-links">
         <nuxt-link to="/">Home</nuxt-link>
-        <a @click="logout" v-if="loggedIn" class="logout-link">Logout</a>
+        <!-- <a href="http://localhost:3000/login" @click="logout" v-if="loggedIn" class="logout-link">Logout</a> -->
+        <nuxt-link to="login" @click.native="logout" v-if="loggedIn" class="logout-link">Log out</nuxt-link>
         <nuxt-link to="login" v-else>Login</nuxt-link>
         <nuxt-link to="secret">Secret</nuxt-link>
       </div>
@@ -43,8 +44,6 @@ export default {
           this.loggedIn = true
         } else {
           Cookies.remove('access_token')
-          // if (Cookies.set('access_token', 'blah')) {
-          // }
           // No user is signed in.
           this.loggedIn = false
           console.log('signed out', this.loggedIn)
@@ -52,6 +51,7 @@ export default {
       })
     },
     logout(){
+      console.log('logout');
       firebase.auth().signOut().then(()=>{
         this.$router.push('/');
       })

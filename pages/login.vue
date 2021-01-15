@@ -1,6 +1,8 @@
 <template>
   <div class="login-wrapper">
-    <div class="login-image"></div>
+    <div class="login-image">
+      <img src="../assets/images/image.svg" width="75px" alt="">
+    </div>
     <div class="login">
       <h3>Log in</h3>
       <form @submit.prevent="pressed">
@@ -50,7 +52,10 @@ export default {
 
   .login-image {
     width: 100%;
-    background-color: black;
+    background-color: #EDF2F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .login {
