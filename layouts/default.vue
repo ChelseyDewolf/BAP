@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div class="main">
+    <div class="none">
+      <div class="main">
       <div class="main-links">
         <nuxt-link to="/">Home</nuxt-link>
         <!-- <a href="http://localhost:3000/login" @click="logout" v-if="loggedIn" class="logout-link">Logout</a> -->
-        <nuxt-link to="login" @click.native="logout" v-if="loggedIn" class="logout-link">Log out</nuxt-link>
-        <nuxt-link to="login" v-else>Login</nuxt-link>
-        <nuxt-link to="secret">Secret</nuxt-link>
+        <nuxt-link to="admin/login" @click.native="logout" v-if="loggedIn" class="logout-link">Log out</nuxt-link>
+        <nuxt-link to="admin/login" v-else>Login</nuxt-link>
+        <!-- <nuxt-link to="secret">Secret</nuxt-link> -->
       </div>
+    </div>
     </div>
     <Nuxt />
   </div>
@@ -61,6 +63,11 @@ export default {
 </script>
 
 <style>
+
+.none {
+  display: none;
+}
+
 html {
   font-family:
     'Source Sans Pro',

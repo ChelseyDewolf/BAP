@@ -2,8 +2,11 @@
   <div class="container">
     <div>
       <h1 class="title">
-        Firebase - app
+        Heilig-Hart
       </h1>
+      <nuxt-link to="">Bewoner</nuxt-link>
+      <nuxt-link to="">Externe</nuxt-link>
+      <nuxt-link to="admin/login">Admin</nuxt-link>
     </div>
   </div>
 </template>
