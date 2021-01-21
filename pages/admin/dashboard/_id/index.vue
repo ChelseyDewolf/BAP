@@ -5,13 +5,13 @@
             <!-- <div>
                 <img class="movie-thumb" :src="movie.posterurl" :alt="movie.title">
             </div> -->
-<!--             
+<!--
             <div>
                 <p class="detail">{{ movie.year }}</p>
                 <h1>{{ movie.title }}</h1>
             </div> -->
             <p>kaas</p>
-            <!-- <!-- <p class="tekst">{{ bewoner.voornaam }}</p> -->
+            <p class="tekst">{{ k.voornaam }}</p>
 
             <div>
                 <!-- <p class="detail">{{ l }}</p> -->
@@ -66,20 +66,23 @@ import ContactItem from '@/components/admin/ContactItem';
 
 let kaas = null;
 export default {
-    
+
     components:{
     },
     mounted(){
-        console.log(this.$store.state.bewoners);  
+      // console.log(this.$store.state.bewoners);
     },
         asyncData(context){
+          // console.log(context.store.state);
+
         return new Promise((resolve, reject) =>{
             setTimeout(() => {
+              console.log(context.store.state);
                 resolve({
-                    
-                    //  k: kaas.state.bewoners.find(el => el.id === context.params.id)
-                
-            
+
+                    k: context.store.state.bewoners.find(el => el.id === context.params.id)
+
+
                 })
             })
         })
