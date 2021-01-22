@@ -11,12 +11,12 @@
                 <h1>{{ movie.title }}</h1>
             </div> -->
             <p>kaas</p>
-            <p class="tekst">{{ k.voornaam }}</p>
+            <!-- <p class="tekst">{{ bewoner.voornaam }}</p>
 
             <div>
                 <!-- <p class="detail">{{ l }}</p> -->
-                <!-- <p class="detail">{{ bewoner.qr }}</p> -->
-            </div>
+                <p class="detail">{{ bewoner.qr }}</p>
+           
 
         </section>
     </div>
@@ -64,23 +64,19 @@ import Cookies from 'js-cookie'
 import ContactItem from '@/components/admin/ContactItem';
 
 
-let kaas = null;
+let kaas = [];
 export default {
 
     components:{
     },
-    mounted(){
-      // console.log(this.$store.state.bewoners);
-    },
         asyncData(context){
-          // console.log(context.store.state);
 
         return new Promise((resolve, reject) =>{
             setTimeout(() => {
               console.log(context.store.state);
                 resolve({
 
-                    k: context.store.state.bewoners.find(el => el.id === context.params.id)
+                    bewoner: context.store.state.bewoners.find(el => el.id === context.params.id)
 
 
                 })
