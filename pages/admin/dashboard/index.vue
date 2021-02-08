@@ -1,25 +1,18 @@
 <template>
   <div>
     <h1>Dashboard</h1>
+
+      <AddBewonerForm />
+
     <nuxt-link to="admin/login" @click.native="logout" class="logout-link">Log out</nuxt-link>
       <ContactItem 
         v-for="bewoner in bewoners"
         :key="bewoner.id"
         :voornaam="bewoner.voornaam"
         :achternaam="bewoner.achternaam"
+        :foto="bewoner.foto"
         :id="bewoner.id"
          />
-
-      <form @submit.prevent="sub">
-
-            <div class="form-group mt-5">  
-
-              <input type="text" placeholder="Add a Todo" class="form-control" v-model="bewoner">
-
-              <button type="submit" class="btn btn-outline-primary mt-3">Add Todo</button>
-            </div>
-          </form>
-
   </div>
 </template>
 
@@ -27,25 +20,17 @@
 <script>
 import { getUserFromCookie } from '@/helpers';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { auth } from '~/plugins/firebase.js'
 import Cookies from 'js-cookie'
-import ContactItem from '@/components/admin/ContactItem';
+import AddBewonerForm from '@/components/admin/forms/addBewonerForm';
+
 
 export default {
-  mounted(){
-    this.setupFirebase();
-    firebase.firestore().collection('bewoners').get().then((res) => {
-      res.forEach(x => {
-        const orgData = ({ id: x.id, ...x.data() });
-        this.$store.commit('setBewoner', orgData);
-      })
-    });
+  components:{
+    AddBewonerForm
   },
   data(){
     return{
-      loggedIn: false,
-      bewoner: ''
+      loggedIn: false
     }
   },
   asyncData({req, redirect}){
@@ -94,31 +79,14 @@ export default {
       firebase.auth().signOut().then(()=>{
         this.$router.push('/');
       })
-    },
-    sub(){
-     if(this.bewoner){
-           firebase.firestore().collection('bewoners').add({
-           }).then((res) => {
-             firebase.firestore().collection('bewoners').doc(res.id).set({
-               bewoner: this.bewoner,
-               id: res.id
-             }).then(() => {
-                this.$store.commit('addBewoner',({bewoner: this.bewoner, id: res.id}) )
-                this.bewoner = ""
-             })
-           })
-     }
-   },
-     removeBewoner(bewoner, index){
-       firebase.firestore().collection('bewoners').doc(bewoner.id).delete().then(() => {
-         console.log('successfully deleted document')
-         this.$store.commit('removeBewoner', index)
-       })
-
-     }
+    }
   }
 }
 </script>
-<style lang="">
+<style lang="scss">
 
+.toon{
+  width: 10rem;
+  height: 10rem;
+}
 </style>

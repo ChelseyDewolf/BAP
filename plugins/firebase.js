@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
-import 'firebase/firestore';
+import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/storage'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +17,9 @@ let app = null
 if (!firebase.apps.length) {
   app = firebase.initializeApp(firebaseConfig)
 }
+
+
+
 
 const usersCollection = firebase.firestore().collection('bewoners');
 
@@ -35,6 +39,10 @@ const usersCollection = firebase.firestore().collection('bewoners');
 // export const deleteUser = id => {
 //   return usersCollection.doc(id).delete()
 // }
+
+export const addBewonerDb = () => {
+  
+}
 
 // export const useLoadUsers = () => {
 //   const users = ref([]);

@@ -1,28 +1,16 @@
 <template class="view">
     <div>
-        <Header />
         <section class="single-movie">
-            <!-- <div>
-                <img class="movie-thumb" :src="movie.posterurl" :alt="movie.title">
-            </div> -->
-<!--
-            <div>
-                <p class="detail">{{ movie.year }}</p>
-                <h1>{{ movie.title }}</h1>
-            </div> -->
-            <p>kaas</p>
-            <!-- <p class="tekst">{{ bewoner.voornaam }}</p>
-
-            <div>
-                <!-- <p class="detail">{{ l }}</p> -->
+                <img :src="`${bewoner.foto}`" alt="" srcset="">
                 <p class="detail">{{ bewoner.qr }}</p>
-           
-
+                <p class="detail">{{ bewoner.voornaam }}</p>
+                <p class="detail">{{ bewoner.achternaam }}</p>
+                <button @click="removeBewoner()">verwijder</button>
         </section>
     </div>
 </template>
 
-<style scoped>
+<style>
     .single-movie{
         display: flex;
         justify-content: space-between;
@@ -56,24 +44,44 @@
 </style>
 
 <script>
-import { getUserFromCookie } from '@/helpers';
+
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { auth } from '~/plugins/firebase.js'
-import Cookies from 'js-cookie'
-import ContactItem from '@/components/admin/ContactItem';
-
 
 let kaas = [];
 export default {
 
     components:{
     },
+        props: ['qr', 'title', 'previewText', 'id'],
+
+    data(){
+        return{
+        pageId: this.$route.params.slug,
+        }
+    },
+    methods: {
+        removeBewoner(){
+            // console.log('successfully deleted document')
+            // console.log(this.$route.params.id)
+        firebase.firestore().collection('bewoners').doc(this.$route.params.id).delete().then(() => {
+        
+        console.log('successfully deleted document')
+        })
+         this.$store.commit('removeBewoner', this.$route.params.id)
+
+            this.$router.push({
+                path: '/admin/dashboard'
+            })
+        },
+    },
+    
         asyncData(context){
 
+                
         return new Promise((resolve, reject) =>{
+            
             setTimeout(() => {
-              console.log(context.store.state);
                 resolve({
 
                     bewoner: context.store.state.bewoners.find(el => el.id === context.params.id)

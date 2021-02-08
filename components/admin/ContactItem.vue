@@ -4,6 +4,8 @@
             <!-- <div class="thumbnail" :style="{backgroundImage: 'url(' + thumbnail + ')'}"></div> -->
             <h1>{{ voornaam }}</h1>
             <p>{{ achternaam }}</p>
+            <div v-if="foto">
+            <div class="thumbnail" :style="{backgroundImage: 'url(' + foto + ')'}"></div></div>
         </article>
     </nuxt-link>
 </template>
@@ -13,9 +15,10 @@
 export default {
     components:{
     },
-    props: ['thumbnail', 'achternaam', 'voornaam', 'id']
+    props: ['thumbnail', 'achternaam', 'voornaam', 'id', 'foto']
 }
 </script>
+
 
 <style scoped>
 
