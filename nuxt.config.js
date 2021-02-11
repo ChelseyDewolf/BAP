@@ -1,7 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'bap',
+    title: 'Bachelorproef',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -11,12 +11,10 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/firebase.js']
-  ['~/plugins/vuelidate'],
+  plugins: ['~/plugins/firebase.js']['~/plugins/vuelidate'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

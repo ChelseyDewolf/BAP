@@ -13,7 +13,7 @@
     </div>
     <div class="viewz">
       <Nuxt />
-      <NavigationBar foto spraakbericht  />
+      <!-- <NavigationBar foto spraakbericht  /> -->
     </div>
   </div>
 </template>
