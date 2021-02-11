@@ -1,11 +1,13 @@
 <template>
     <nuxt-link :to="'/admin/dashboard/' + id">
-        <article class="movie">
+        <article class="bewoner">
             <!-- <div class="thumbnail" :style="{backgroundImage: 'url(' + thumbnail + ')'}"></div> -->
-            <h1>{{ voornaam }}</h1>
-            <p>{{ achternaam }}</p>
             <div v-if="foto">
             <div class="thumbnail" :style="{backgroundImage: 'url(' + foto + ')'}"></div></div>
+            <div class="bewoner-content">
+              <h1>{{ voornaam + ' ' + achternaam}}</h1>
+              <span>{{ 'Floor' + ' ' + verdiep }}</span>
+            </div>
         </article>
     </nuxt-link>
 </template>
@@ -15,7 +17,7 @@
 export default {
     components:{
     },
-    props: ['thumbnail', 'achternaam', 'voornaam', 'id', 'foto']
+    props: ['thumbnail', 'achternaam', 'voornaam', 'id', 'foto', 'verdiep']
 }
 </script>
 
@@ -33,33 +35,38 @@ a{
 .thumbnail{
     background-position: center;
     background-size: cover;
-    width: 100%;
-    height: 20rem;
-        border-radius: .8rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 500rem;
 
 }
 
-.movie{
+.bewoner{
     box-sizing: border-box;
-    width: 28rem;
-    padding: .5rem;
+    width: 23rem;
+    padding: 1rem;
     border-radius: .8rem;
-    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;    
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
     background-color: #f7f7f7;
-    letter-spacing: .1rem;
     text-transform: capitalize;
-    height: 30rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+
+.bewoner-content {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie:hover{
     transition: all .3s;
-        box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;    
+        box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
 
     }
 

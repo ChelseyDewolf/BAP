@@ -4,7 +4,7 @@
       <h1 class="title">
         Heilig-Hart
       </h1>
-      <nuxt-link to="">Bewoner</nuxt-link>
+      <nuxt-link to="bewoner">Bewoner</nuxt-link>
       <nuxt-link to="">Externe</nuxt-link>
       <nuxt-link to="admin/login">Admin</nuxt-link>
     </div>
@@ -24,7 +24,7 @@ export default {}
   align-items: center;
   text-align: center;
   height: 100vh;
-  
+
 }
 
 .title {
