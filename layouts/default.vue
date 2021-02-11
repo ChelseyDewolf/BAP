@@ -11,7 +11,10 @@
       </div>
     </div>
     </div>
-    <Nuxt />
+    <div class="viewz">
+      <Nuxt />
+      <!-- <NavigationBar foto spraakbericht  /> -->
+    </div>
   </div>
 </template>
 
@@ -20,8 +23,12 @@
 import firebase from 'firebase/app'
 import { auth } from '~/plugins/firebase.js'
 import Cookies from 'js-cookie'
+import NavigationBar from '@/components/ui/NavigationBar'
 
 export default {
+  components:{
+    NavigationBar
+  },
   mounted(){
     this.setupFirebase();
   },
@@ -64,6 +71,10 @@ export default {
 
 <style>
 
+.viewz{
+  height: 100vh;
+}
+
 .none {
   display: none;
 }
@@ -85,6 +96,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 *,
