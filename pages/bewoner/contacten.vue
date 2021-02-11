@@ -8,22 +8,22 @@
       foto="https://source.unsplash.com/random"
       id="test"
        />
-       <Contact naam="Chelsey Dewolf"
+       <Contact naam="Anton Pycarelle"
       actief="Heel actief"
       foto="https://source.unsplash.com/random"
       id="testt"
        />
-       <Contact naam="Chelsey Dewolf"
+       <Contact naam="Aline Bossuyt"
       actief="Heel actief"
       foto="https://source.unsplash.com/random"
       id="test4"
        />
-       <Contact naam="Chelsey Dewolf"
+       <Contact naam="Ashley Stoepker"
       actief="Heel actief"
       foto="https://source.unsplash.com/random"
       id="test9"
        />
-       <Contact naam="Chelsey Dewolf"
+       <Contact naam="John Doe"
       actief="Heel actief"
       foto="https://source.unsplash.com/random"
       id="test12"
