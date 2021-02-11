@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="'/bewoner/messages/' + id">
-        <h2 class="title">{{voornaam}}</h2>
+        <h2 class="contact-title">{{voornaam}}</h2>
   </nuxt-link>
 
 </template>
@@ -14,7 +14,7 @@ export default {
 
 
 <style>
-  .title {
+  .contact-title {
     color: black;
   }
 </style>

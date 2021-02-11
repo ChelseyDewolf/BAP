@@ -14,7 +14,7 @@
     <div class="msg left-msg">
       <div
        class="msg-img"
-       style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+       style="background-image: url(https://gravatar.com/avatar/7c4307327e4940b99fb1d2c49cbf59a9?s=200&d=mp&r=x)"
       ></div>
 
       <div class="msg-bubble">
@@ -38,7 +38,7 @@
     <div class="msg right-msg">
       <div
        class="msg-img"
-       style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+       style="background-image: url(https://gravatar.com/avatar/7c4307327e4940b99fb1d2c49cbf59a9?s=200&d=mp&r=x)"
       ></div>
 
       <div class="msg-bubble">
